@@ -1,4 +1,4 @@
-package io.learning.graphs
+package io.learning.dsaa.graphs
 
 import java.util.*
 

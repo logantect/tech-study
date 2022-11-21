@@ -1,4 +1,4 @@
-package io.learning.tree
+package io.learning.dsaa.tree
 
 class BinaryTree {
     var root: Node? = null

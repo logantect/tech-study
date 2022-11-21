@@ -1,4 +1,4 @@
-package io.learning.tree
+package io.learning.dsaa.tree
 
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach

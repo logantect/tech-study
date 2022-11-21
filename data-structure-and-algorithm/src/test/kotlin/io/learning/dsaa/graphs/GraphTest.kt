@@ -1,4 +1,4 @@
-package io.learning.graphs
+package io.learning.dsaa.graphs
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
