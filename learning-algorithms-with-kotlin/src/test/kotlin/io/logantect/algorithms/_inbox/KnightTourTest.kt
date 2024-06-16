@@ -1,5 +1,6 @@
 package io.logantect.algorithms._inbox
 
+import io.logantect.algorithms.backjoon.p1331.KnightTourSolution01
 import kotlin.test.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
