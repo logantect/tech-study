@@ -1,4 +1,4 @@
-## [백준 2635번: 수 이어가기](https://www.acmicpc.net/problem/1436)
+## [백준 2635번: 수 이어가기](https://www.acmicpc.net/problem/2635)
 
 ### 1. 추상화
 #### 문제 설명:
