@@ -1,32 +1,31 @@
-package io.logantect.algorithms.backjoon.p6550
+package io.logantect.algorithms.backjoon.p9324
 
+import io.logantect.algorithms.backjoon.p6550.Substring
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 import org.junit.jupiter.api.Assertions.*
 
 import org.junit.jupiter.api.Test
 
-class SubstringTest {
+class RealMessageTest {
 
     @Test
     fun solution() {
         val input = listOf(
-            "sequence subsequence",
-            "person compression",
-            "VERDI vivaVittorioEmanueleReDiItalia",
-            "caseDoesMatter CaseDoesMatter"
+            "BAPC",
+            "AABA",
+            "ABCABCBBAAACC"
         )
 
         val expectedOutput = listOf(
-            "Yes",
-            "No",
-            "Yes",
-            "No"
+            "OK",
+            "FAKE",
+            "OK"
         ).joinToString("\n") + "\n"
 
         val outputStream = ByteArrayOutputStream()
         System.setOut(PrintStream(outputStream))
-        Substring.solution(input)
+        RealMessage.solution(input)
         assertEquals(expectedOutput, outputStream.toString())
     }
 }
