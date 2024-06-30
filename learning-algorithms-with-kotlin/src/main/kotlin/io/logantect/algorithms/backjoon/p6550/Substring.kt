@@ -1,5 +1,7 @@
 package io.logantect.algorithms.backjoon.p6550
 
+import java.util.StringTokenizer
+
 fun main() = with(System.`in`.bufferedReader()) {
     val readLines = mutableListOf<String>()
     while (true) {
@@ -12,11 +14,13 @@ fun main() = with(System.`in`.bufferedReader()) {
 object Substring {
     fun solution(strList: List<String>) {
         strList.forEach {
-            val (s, t) = it.split(" ")
+            val stringTokenizer = StringTokenizer(it)
+            val s = stringTokenizer.nextToken()
+            val t = stringTokenizer.nextToken()
             var sIndex = 0
 
-            t.forEach { char ->
-                if (sIndex < s.length && s[sIndex] == char) {
+            for (i in t.indices) {
+                if (sIndex < s.length && s[sIndex] == t[i]) {
                     sIndex++
                 }
             }
