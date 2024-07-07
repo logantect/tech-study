@@ -3,7 +3,7 @@
 ## 1. 추상화
 ### 문제 설명:
 1. 주어진 숫자들을 조합하여 가장 큰 30의 배수를 만드는 문제이다.
-2. 30의 배수는 마지막 자리가 0이고 모든 자릿수의 합이 3의 배수여야 한다.
+2. 30의 배수는 0이 포함되어있고 모든 자릿수의 합이 3의 배수여야 한다.
 3. 주어진 숫자를 재배열하여 가장 큰 30의 배수를 출력한다.
 4. 불가능할 경우 -1을 출력한다.
 
@@ -89,3 +89,7 @@ object Thirty {
 
 1. 주어진 숫자들을 이용하여 가장 큰 30의 배수를 생성한다.
 2. 불가능할 경우 -1을 반환한다.
+
+## 참고
+1. [배수 판정법](https://blog.naver.com/alwaysneoi/100200385519)
+2. [[Khan Academy] 2, 3, 4, 5, 6, 9, 10의 배수판정법](https://ko.khanacademy.org/math/pre-algebra/pre-algebra-factors-multiples/pre-algebra-divisibility-tests/v/divisibility-tests-for-2-3-4-5-6-9-10)
