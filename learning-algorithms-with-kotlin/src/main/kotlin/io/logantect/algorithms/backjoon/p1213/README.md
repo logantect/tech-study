@@ -97,3 +97,7 @@ fun isRealMessage(message: String): Boolean {
 2. 두 번째 메시지 `"AABA"`는 조건을 만족하지 않으므로 결과는 `FAKE`이다.
 3. 세 번째 메시지 `"ABCABCBBAAACC"`는 모든 조건을 만족하므로 결과는 `OK`이다.
 
+
+## 참고
+1. [배수 판정법](https://blog.naver.com/alwaysneoi/100200385519)
+2. [[Khan Academy] 2, 3, 4, 5, 6, 9, 10의 배수판정법](https://ko.khanacademy.org/math/pre-algebra/pre-algebra-factors-multiples/pre-algebra-divisibility-tests/v/divisibility-tests-for-2-3-4-5-6-9-10)
