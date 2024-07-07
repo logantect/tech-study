@@ -54,9 +54,8 @@ object Thirty {
         if (!zeroContained) {
             return "-1"
         }
-        
-        val sum = digits.sumOf { it.code - '0'.code }
-        
+
+        val sum = digits.sumOf { it.code }
         if (sum % 3 != 0) {
             return "-1"
         }
