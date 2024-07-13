@@ -10,7 +10,9 @@ fun main() = with(System.`in`.bufferedReader()) {
 }
 
 object MazeMaker {
-    fun solution(message: String): String {
+    fun solution(message: String?): String {
+        if (message == null) return ""
+
         var x = 0
         var y = 0
         // 남(S), 동(E), 북(N), 서(W) 순서로 방향 설정
@@ -19,19 +21,16 @@ object MazeMaker {
         val path = mutableListOf(Pair(x, y))
 
         message.forEach { command ->
-            println("dirIndex: $dirIndex")
             when (command) {
                 'F' -> {
                     x += directions[dirIndex].first
                     y += directions[dirIndex].second
                     path.add(Pair(x, y))
                 }
-                'L' -> dirIndex = (dirIndex + 3) % 4
-                'R' -> dirIndex = (dirIndex + 1) % 4
+                'L' -> dirIndex = (dirIndex + 1) % 4  // 왼쪽 회전은 인덱스를 1 증가
+                'R' -> dirIndex = (dirIndex + 3) % 4  // 오른쪽 회전은 인덱스를 3 증가 (역방향 회전)
             }
         }
-
-        println("path: $path")
 
         // 미로 범위 계산
         val minX = path.minOf { it.first }
