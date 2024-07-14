@@ -21,6 +21,7 @@ object MazeMaker {
         val path = mutableListOf(Pair(x, y))
 
         message.forEach { command ->
+            println("dirIndex: $dirIndex")
             when (command) {
                 'F' -> {
                     x += directions[dirIndex].first
@@ -32,17 +33,25 @@ object MazeMaker {
             }
         }
 
+        println("path: $path")
+
         // 미로 범위 계산
         val minX = path.minOf { it.first }
         val maxX = path.maxOf { it.first }
         val minY = path.minOf { it.second }
         val maxY = path.maxOf { it.second }
 
+        println("minX: $minX, maxX: $maxX, m inY: $minY, maxY: $maxY")
+
         // 미로 그리기
         val maze = Array(maxY - minY + 1) { CharArray(maxX - minX + 1) { '#' } }
+        println(maze.joinToString("\n") { it.joinToString("") })
         path.forEach { (px, py) ->
+            println("(${(py - minY)}, ${(px - minX)})")
             maze[py - minY][px - minX] = '.'
         }
-        return maze.joinToString("\n") { it.joinToString("") }
+        val joinToString = maze.joinToString("\n") { it.joinToString("") }
+        println(joinToString)
+        return joinToString
     }
 }
