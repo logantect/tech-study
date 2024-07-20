@@ -131,3 +131,65 @@ object RoadWithTrafficLight {
     ```
     16
     ```
+
+## 다른 문제 풀이와 비교
+
+```kotlin
+import java.io.BufferedWriter
+import java.io.OutputStreamWriter
+import java.util.StringTokenizer
+
+fun main() = with(System.`in`.bufferedReader()) {
+    val firstLine = readLine()
+    val stringTokenizer = StringTokenizer(firstLine)
+    val n = stringTokenizer.nextToken().toInt()
+    val l = stringTokenizer.nextToken().toInt()
+    val signals = mutableListOf<Triple<Int, Int, Int>>()
+
+    repeat(n) {
+        val tokenizer = StringTokenizer(readLine())
+        val d = tokenizer.nextToken().toInt()
+        val r = tokenizer.nextToken().toInt()
+        val g = tokenizer.nextToken().toInt()
+        signals.add(Triple(d, r, g))
+    }
+
+    val result = RoadWithTrafficLight2.calculateTravelTime(l, signals)
+    BufferedWriter(OutputStreamWriter(System.out)).use { writer ->
+        writer.write("$result\n") // 잘못된 이스케이프 문자를 제거
+    }
+}
+
+object RoadWithTrafficLight2 {
+    fun calculateTravelTime(l: Int, signals: List<Triple<Int, Int, Int>>): Int {
+        var currentTime = 0
+        var currentPosition = 0
+
+        for ((d, r, g) in signals) {
+            // 신호등 위치로 이동
+            currentTime += (d - currentPosition)
+            currentPosition = d
+
+            val cycleTime = r + g
+            val timeInCycle = currentTime % cycleTime
+
+            // 빨간 불일 경우 대기
+            if (timeInCycle < r) {
+                currentTime += (r - timeInCycle)
+            }
+        }
+
+        // 도로 끝까지 이동
+        currentTime += (l - currentPosition)
+        return currentTime
+    }
+}
+
+```
+
+- 두 코드 모두 신호등의 정보를 반복하여 이동 시간을 계산합니다.
+- 첫 번째 코드는 `trafficLights`를 `Map`으로 관리하며, 신호등의 위치를 기준으로 루프를 돌며 이동 시간을 계산합니다.
+- 두 번째 코드는 `signals`를 `List`로 관리하며, 신호등의 정보를 `Triple`로 저장한 뒤 반복하여 이동 시간을 계산합니다.
+- 두 코드 모두 시간 복잡도는 O(N)입니다.
+- 두 코드의 차이점은 입력을 파싱하고 신호등 정보를 관리하는 방식입니다.
+- 첫 번째 코드는 `Map`을 사용하여 간결하게 신호등 정보를 조회할 수 있으며, 두 번째 코드는 `List`를 사용하여 순차적으로 신호등 정보를 처리합니다.
