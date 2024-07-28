@@ -1,6 +1,6 @@
 ## [백준 3048번: 개미](https://www.acmicpc.net/problem/3048)
 
-### 1. 추상화
+## 1. 추상화
 
 ### 문제 설명:
 
@@ -30,7 +30,7 @@ DEF
 CDBEAF
 ```
 
-### 2. 계산
+## 2. 계산
 
 ### 불변량(Invariant) 정의:
 
@@ -130,7 +130,7 @@ object Ant {
 
 ```
 
-### 3. 해석
+## 3. 해석
 
 ### 1. **입력 파싱**:
 
@@ -173,7 +173,7 @@ object Ant {
     CDBEAF
     ```
 
-### 다른 문제 풀이와 비교
+## 다른 문제 풀이와 비교
 
 ```kotlin
 import java.io.BufferedReader
