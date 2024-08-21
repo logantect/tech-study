@@ -37,6 +37,8 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       KAFKA_HOME: '/opt/kafka'
+    volumes:
+      - ./kafka-1/config:/opt/kafka/config
 
   kafka-2:
     image: ${IMAGE}
@@ -60,6 +62,8 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       KAFKA_HOME: '/opt/kafka'
+    volumes:
+      - ./kafka-2/config:/opt/kafka/config
 
   kafka-3:
     image: ${IMAGE}
@@ -83,3 +87,5 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       KAFKA_HOME: '/opt/kafka'
+    volumes:
+      - ./kafka-3/config:/opt/kafka/config
