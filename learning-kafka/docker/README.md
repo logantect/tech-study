@@ -10,9 +10,18 @@ $ IMAGE=apache/kafka:latest docker compose -f docker-compose.yml up
 # GraalVM based Native Apache Kafka Docker Image
 $ IMAGE=apache/kafka-native:latest docker compose -f docker-compose.yml up
 ```
-   
-To access using client script:
+
+Create a topic
 ``` bash
-# Run from root of the repo
+$ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:29092
+```
+
+Write some events into the topic
+``` bash
+$ bin/kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:29092
+```
+
+Read the events
+``` bash
 $ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:29092
 ```
