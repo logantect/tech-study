@@ -1,6 +1,7 @@
 package io.logantect.algorithms.arrays
 
 import io.logantect.algorithms.MeasureTimeExtension
+import io.logantect.algorithms.codinginterview.chapter07.arrays.BruteForceTwoSum
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

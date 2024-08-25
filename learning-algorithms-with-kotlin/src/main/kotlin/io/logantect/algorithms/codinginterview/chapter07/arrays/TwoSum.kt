@@ -1,4 +1,4 @@
-package io.logantect.algorithms.arrays
+package io.logantect.algorithms.codinginterview.chapter07.arrays
 
 interface TwoSum {
     fun twoSum(nums: IntArray, target: Int): IntArray
