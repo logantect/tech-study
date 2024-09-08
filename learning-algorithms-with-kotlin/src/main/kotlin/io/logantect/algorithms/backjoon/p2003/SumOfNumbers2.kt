@@ -22,18 +22,16 @@ object SumOfNumbers2 {
     fun solution(n: Int, m: Int, numbers: IntArray): Int {
         var count = 0
         var sum = 0
-        var i = 0
+        var left = 0
 
-        for (j in 0 until n) {
-            sum += numbers[j]
+        for (right in 0 until n) {
+            sum += numbers[right]
 
-            // sum이 m을 초과하면 i 포인터를 이동시켜서 합을 줄임
             while (sum > m) {
-                sum -= numbers[i]
-                i++
+                sum -= numbers[left]
+                left++
             }
 
-            // sum이 m과 같으면 카운트 증가
             if (sum == m) {
                 count++
             }
