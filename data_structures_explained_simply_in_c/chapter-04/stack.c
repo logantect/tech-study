@@ -53,5 +53,9 @@ int main(void) {
 	printf("%d\n", pop());
 	printf("%d\n", pop());
 	printf("%d\n", pop());
+
+
+	int n = 50;
+	printf("%p\n", &n);
 	return 0;
 }

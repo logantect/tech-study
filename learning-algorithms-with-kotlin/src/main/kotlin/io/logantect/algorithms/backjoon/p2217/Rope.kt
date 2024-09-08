@@ -1,9 +1,14 @@
 package io.logantect.algorithms.backjoon.p2217
 
+import java.io.BufferedWriter
+import java.io.OutputStreamWriter
+
 fun main() = with(System.`in`.bufferedReader()) {
     val n = readLine().toInt()
     val ropes = IntArray(n) { readLine().toInt() }
-    println(Rope.solution(ropes))
+    BufferedWriter(OutputStreamWriter(System.out)).use { writer ->
+        writer.write("${Rope.solution(ropes)}\n")
+    }
 }
 
 object Rope {
