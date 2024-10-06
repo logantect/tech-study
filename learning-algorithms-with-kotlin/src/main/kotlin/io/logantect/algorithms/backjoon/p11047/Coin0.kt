@@ -21,7 +21,8 @@ object Coin0 {
         var amount = k
         var count = 0
 
-        for (coin in coins.reversed()) {
+        for (i in coins.size - 1 downTo 0) {
+            val coin = coins[i]
             if (coin <= amount) {
                 count += amount / coin
                 amount %= coin
