@@ -37,8 +37,8 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       KAFKA_HOME: '/opt/kafka'
-    volumes:
-      - ./kafka-1/config:/opt/kafka/config
+    networks:
+      - kafka_network
 
   kafka-2:
     image: ${IMAGE}
@@ -62,8 +62,8 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       KAFKA_HOME: '/opt/kafka'
-    volumes:
-      - ./kafka-2/config:/opt/kafka/config
+    networks:
+      - kafka_network
 
   kafka-3:
     image: ${IMAGE}
@@ -87,5 +87,27 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       KAFKA_HOME: '/opt/kafka'
-    volumes:
-      - ./kafka-3/config:/opt/kafka/config
+    networks:
+      - kafka_network
+
+  KafkaWebUiService:
+    image: provectuslabs/kafka-ui:latest
+    restart: always
+    container_name: KafkaWebUiContainer
+    ports:
+      - '19090:8080'
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=Local-Kraft-Cluster
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka-1:19092,kafka-2:19092,kafka-3:19092
+      - DYNAMIC_CONFIG_ENABLED=true
+      - KAFKA_CLUSTERS_0_AUDIT_TOPICAUDITENABLED=true
+      - KAFKA_CLUSTERS_0_AUDIT_CONSOLEAUDITENABLED=true
+    depends_on:
+      - kafka-1
+      - kafka-2
+      - kafka-3
+    networks:
+      - kafka_network
+
+networks:
+  kafka_network:
