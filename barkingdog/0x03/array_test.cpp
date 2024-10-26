@@ -10,7 +10,10 @@ void insert(int idx, int num, int arr[], int& len){
 }
 
 void erase(int idx, int arr[], int& len){
-
+    for (int i = idx; i < len; i++) {
+        arr[i] = arr[i+1];
+    }
+    len--;
 }
 
 void printArr(int arr[], int& len){
@@ -43,6 +46,6 @@ void erase_test(){
 }
 
 int main(void) {
-    insert_test();
-    // erase_test();
+    // insert_test();
+    erase_test();
 }
