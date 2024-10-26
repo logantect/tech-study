@@ -12,12 +12,18 @@ int func2(int arr[], int N) {
     return 0;
 }
 
+void printResult(int arr[], int N) {
+    cout << func2(arr, N) << "\n";
+}
+
 int main(void) {
     int arr1[3] = {1, 52, 48};
     int arr2[2] = {50, 42};
     int arr3[4] = {4, 13, 63, 87};
+    int arr4[5] = {1, 23, 53, 77, 60};
 
-    cout << func2(arr1, 3); cout << "\n";   // 1
-    cout << func2(arr2, 2); cout << "\n";   // 0
-    cout << func2(arr3, 4);                 // 1
+    printResult(arr1, 3); // 예상 출력: 1
+    printResult(arr2, 2); // 예상 출력: 0
+    printResult(arr3, 4); // 예상 출력: 1
+    printResult(arr4, 5); // 예상 출력: 1
 }
