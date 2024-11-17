@@ -4,10 +4,6 @@ import java.io.BufferedWriter
 import java.io.OutputStreamWriter
 import java.util.StringTokenizer
 
-fun test() {
-    val readLine = readLine()
-}
-
 fun main() = with(System.`in`.bufferedReader()) {
     val tokenizer = StringTokenizer(readLine())
     val rows = tokenizer.nextToken().toInt()
